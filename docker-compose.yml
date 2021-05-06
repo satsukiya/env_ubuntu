@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  web_app:
+    image: opencv-doc-image
+    container_name: opencv-doc-container
+    privileged: true
+    tty: true
+    stdin_open: true
+    command: /sbin/init
+    volumes:
+      - .:/var/src
+    ports:
+      - 1005:1608
+
+#  mysql:
+#    image: mysql:5.7
+#    volumes:
+#      - "./mysql:/var/lib/mysql"
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=password
+
+#  phpmyadmin:
+#    image: phpmyadmin/phpmyadmin
+#    environment:
+#      - PMA_ARBITRARY=1
+#      - PMA_HOST=mysql
+#      - PMA_USER=root
+#      - PMA_PASSWORD=password
+#    links:
+#      - mysql
+#    ports:
+#       - 8080:80
+#    volumes:
+#       - /sessions
